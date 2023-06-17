@@ -29,7 +29,7 @@ public class PtacticeFormTests {
         $("#firstName").setValue("Иван");
         $("#lastName").setValue("Иванов");
         $("#userEmail").setValue("Ivan@ov.ru");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1233210023");
         $(".react-datepicker-wrapper").click();
         $(".react-datepicker__month-select").click();
