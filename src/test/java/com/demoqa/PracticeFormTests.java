@@ -1,6 +1,5 @@
 package com.demoqa;
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.codeborne.selenide.Configuration;
@@ -9,23 +8,23 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PtacticeFormTests {
+public class PracticeFormTests {
     @BeforeAll
     static void beforeAll() {
- Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
 
     }
     @Test
     void successTest() {
-        Configuration.pageLoadStrategy = "eager";
-        open("https://demoqa.com/automation-practice-form");
 
+        open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Иван");
         $("#lastName").setValue("Иванов");
         $("#userEmail").setValue("Ivan@ov.ru");
@@ -58,10 +57,6 @@ public class PtacticeFormTests {
         $(".table-responsive").shouldHave(text("Picture.png"));
         $(".table-responsive").shouldHave(text("Адрес"));
         $(".table-responsive").shouldHave(text("NCR Gurgaon"));
-
-
-
-
 
 
     }
